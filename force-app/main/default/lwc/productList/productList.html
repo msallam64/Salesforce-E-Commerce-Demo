@@ -1,13 +1,13 @@
 <template>
     <lightning-card title="Products">
-        <div class="container">
-            <ul class="product-list">
-                <template for:each={products.data} for:item="product">
-                    <li key={product.Id}>
-                        <c-product-list-item product={product}></c-product-list-item>
-                    </li>
-                </template>
-            </ul>
+        <div class="product-grid">
+            <template for:each={products.data} for:item="product" >
+                    <!-- Use unique key for each list item -->
+                    <!-- Include the product item component -->
+                    <c-product-list-item class="product-item-container" key={product.Id} product={product}></c-product-list-item>
+               
+            </template>
         </div>
     </lightning-card>
+
 </template>

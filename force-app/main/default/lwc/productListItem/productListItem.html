@@ -1,5 +1,25 @@
 <template>
-    <div class="product-item">
-        <p>Name: {product.Name}</p>
-    </div>
+    <lightning-card class="product-item-Name" title={product.Name}>
+        <div class="slds-grid slds-wrap">
+            <div class="product-item-container">
+                <!-- Display the rich text content on the left -->
+            <div class="slds-col">
+                <div class="product-item-image">
+                    <lightning-formatted-rich-text value={product.Product_Image__c}></lightning-formatted-rich-text>
+                </div>
+            </div>
+
+            <div class="slds-col">
+                <div class="product-item-text">
+                    <p><strong>Name:</strong> {product.Name}</p>  
+                    <p><strong>Description:</strong> {product.Description}</p>  
+                    <p><strong>Price:</strong> ${product.Product_Price__c}</p>  
+                    <p><strong>Stock:</strong> {product.Stock_Quantity__c}</p>  
+                </div>    
+            </div>
+
+            </div>
+            
+        </div>
+    </lightning-card>
 </template>

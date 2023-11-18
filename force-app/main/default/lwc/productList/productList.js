@@ -7,6 +7,10 @@ export default class ProductList extends LightningElement {
     // The @wire decorator wires the result of the Apex method to the products property of the LWC
     @wire(getProducts) products;
 
+    handleProductClick(event) {
+        // Handle product click, e.g., navigate to product details page
+    }
+
     // renderedCallback lifecycle hook is used to log the value of this.
     //products to the console after the component has been rendered.
     renderedCallback() {
