@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Product Details">
+        <div if:true={selectedProduct}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col">
+                    <div class="product-item-image">
+                        <lightning-formatted-rich-text value={selectedProduct.Product_Image__c}></lightning-formatted-rich-text>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="product-item-text">
+                        <p><strong>Name:</strong> {selectedProduct.Name}</p>  
+                        <p><strong>Description:</strong> {selectedProduct.Description}</p>  
+                        <p><strong>Price:</strong> ${selectedProduct.Product_Price__c}</p>  
+                        <p><strong>Stock:</strong> {selectedProduct.Stock_Quantity__c}</p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div if:false={selectedProduct}>
+            Please select a product.
+        </div>
+    </lightning-card>
+</template>

@@ -4,8 +4,11 @@
             <template for:each={products.data} for:item="product" >
                     <!-- Use unique key for each list item -->
                     <!-- Include the product item component -->
-                    <c-product-list-item class="product-item-container" key={product.Id} product={product}></c-product-list-item>
-               
+                    <c-product-list-item class="product-item-container"
+                     key={product.Id}
+                     product={product}
+                     onproductselected={handleProductSelected}
+                    ></c-product-list-item>
             </template>
         </div>
     </lightning-card>

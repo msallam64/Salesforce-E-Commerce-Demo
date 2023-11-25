@@ -20,6 +20,23 @@ public with sharing class ProductController {
         return products;
     }
 
+    @AuraEnabled(cacheable=true)
+    public static Product2 getProductDetails(String productId) {
+        // Query the product details based on the provided productId
+        Product2 productdetails = [SELECT
+        Id, 
+        Name,
+        Product_Image__c,
+        Description,
+        Product_Price__c,
+        Stock_Quantity__c FROM Product2
+        WHERE Id = :productId LIMIT 1
+        ];
+
+        System.debug('Products ' + productdetails);
+        return productdetails;
+    }
+
     /*
     // Inner class to represent a product wrapper with processed records
     public class ProductWrapper {
