@@ -14,11 +14,12 @@ export default class ProductList extends LightningElement {
         }
     }
 
-    selectedProductId; 
+    @track selectedProductId;
 
     handleProductSelected(event) {
-        // Handle product click, e.g., navigate to product details page
-        this.selectedProductId = event.detail;
+        // Get the selected product's ID from the custom event
+        this.selectedProductId = event.detail.productId;
+        console.log('Product Selected Event:', this.selectedProductId);
     }
 
     // renderedCallback lifecycle hook is used to log the value of this.

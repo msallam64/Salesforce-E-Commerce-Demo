@@ -6,8 +6,12 @@ export default class ProductListItem extends LightningElement {
     // can pass the product data to it.
     @api product;
     
-    handleClick() {
-        // Dispatch a custom event with the selected product's ID
-        this.dispatchEvent(new CustomEvent('productselected', { detail: this.product.Id }));
+    handleItemClick() {
+        // Dispatch a custom event to notify the parent component with the selected product's ID
+        const selectEvent = new CustomEvent('productselected', {
+            detail: { productId: this.product.Id }
+        });
+        this.dispatchEvent(selectEvent);
+        console.log('Item Clicked - Product ID:', this.product.Id);
     }
 }

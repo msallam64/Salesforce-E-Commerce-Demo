@@ -13,4 +13,10 @@
         </div>
     </lightning-card>
 
+    <!-- Pass the selected product's ID to the details component -->
+    <c-product-details
+        if:true={selectedProductId}
+        product-id={selectedProductId}
+    ></c-product-details>
+
 </template>

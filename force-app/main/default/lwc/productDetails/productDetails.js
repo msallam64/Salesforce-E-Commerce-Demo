@@ -3,15 +3,19 @@ import getProductDetails from '@salesforce/apex/ProductController.getProductDeta
 
 
 export default class ProductDetails extends LightningElement {
-    @api selectedProductId;
-    selectedProduct;
+    @api productId;
+    productName;
 
-    @wire(getProductDetails, { productId: '$selectedProductId' })
+    // Use a wire service to fetch details based on the selected product's ID
+    @wire(getProductDetails, { productId: '$productId' })
     wiredProduct({ error, data }) {
         if (data) {
-            this.selectedProduct = data;
+            // Assign the fetched product details to properties
+            this.productName = data.Name;
+            console.log('Fetched Product Details:', data);
+            console.log('Fetched Product Details:', data.Name);
         } else if (error) {
-            console.error('Error fetching product details:', error);
+            // Handle error
         }
     }
 }
