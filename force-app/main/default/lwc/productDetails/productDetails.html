@@ -1,5 +1,7 @@
 <template>
+    <template if:true={data}>
     <lightning-card title="Product Details">
-        <p><strong>Name:</strong> {productName}</p>  
+        <p><strong>Name:</strong> {data.Name}</p>  
     </lightning-card>
+</template>
 </template>
